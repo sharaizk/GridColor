@@ -351,6 +351,7 @@ const ManageHistory = (color, array) => {
   if (array.length === 4) {
     array.pop();
   }
+  if (colorHistory.indexOf(color) >= 0) return;
   colorHistory = [color, ...colorHistory];
 };
 
