@@ -363,13 +363,19 @@ picker.addEventListener("colorChange", function (e) {
     historyContainer.removeChild(historyContainer.firstChild);
   }
   ManageHistory(e.detail.picker.getHexColor(), colorHistory);
-  colorHistory.forEach((color) => {
+  colorHistory.forEach((color, i) => {
     const historyBox = document.createElement("div");
     historyBox.classList.add("history-box");
+    if (i === 0) {
+      historyBox.style.borderRadius = "5px 5px 0 0";
+    }
+
+    if (i == 3) {
+      historyBox.style.borderRadius = "0 0 5px 5px";
+    }
     historyBox.addEventListener("click", () => {
       defaultNewBgValue = historyBox.style.backgroundColor;
       colorPicker.style.background = historyBox.style.backgroundColor;
-
       pickerBtn.style.background = historyBox.style.backgroundColor;
     });
     historyBox.style.backgroundColor = color;
