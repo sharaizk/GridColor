@@ -354,6 +354,8 @@ const ManageHistory = (color, array) => {
   colorHistory = [color, ...colorHistory];
 };
 
+const pickerBtn = document.querySelector(".ebcp-selection");
+
 picker.addEventListener("colorChange", function (e) {
   defaultNewBgValue = e.detail.picker.getHexColor();
   colorPicker.style.background = e.detail.picker.getHexColor();
@@ -366,6 +368,9 @@ picker.addEventListener("colorChange", function (e) {
     historyBox.classList.add("history-box");
     historyBox.addEventListener("click", () => {
       defaultNewBgValue = historyBox.style.backgroundColor;
+      colorPicker.style.background = historyBox.style.backgroundColor;
+
+      pickerBtn.style.background = historyBox.style.backgroundColor;
     });
     historyBox.style.backgroundColor = color;
     historyContainer.appendChild(historyBox);
@@ -726,9 +731,21 @@ async function renderBox(boxNumber) {
   updateBox(boxNumber, res.data);
 }
 
-const updateBox = (boxNumber, colors) => {
-  Boxes[boxNumber] = colors;
+function arrayEquals(a, b) {
+  return (
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index])
+  );
+}
 
+const updateBox = (boxNumber, colors) => {
+  const newArr = Boxes[boxNumber].filter((a) => a);
+  const isEqual = arrayEquals(newArr, colors);
+  // Do nothing
+  if (isEqual) return;
+  Boxes[boxNumber] = colors;
   const selectedBox = document.getElementById(`${boxNumber}`);
   while (selectedBox.hasChildNodes()) {
     selectedBox.removeChild(selectedBox.firstChild);

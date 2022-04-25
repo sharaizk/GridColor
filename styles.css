@@ -204,20 +204,22 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 .history-container {
-  width: 15%;
-  height: 100%;
+  width: 12%;
+  height: 80%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 14px;
+  border-radius: 5px;
 }
 
 .history-box {
   height: 25%;
   width: 80%;
+
   /* background-color: red; */
 }
 
@@ -620,7 +622,14 @@ button.toast-close-button {
   }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1440px) {
+  .history-container {
+    width: 40%;
+    height: 80%;
+    margin-left: 15px;
+    margin-top: 6px;
+  }
+
   .colorPicker {
     font-size: 0.5rem;
     text-align: center;
@@ -637,15 +646,14 @@ button.toast-close-button {
 
 @media screen and (max-width: 1024px) {
   .history-container {
-    width: 40%;
+    width: 60%;
     height: 80%;
     margin-left: 15px;
   }
 
   .history-box {
-    height: 23%;
+    height: 25%;
     width: 80%;
-    background-color: red;
   }
 }
 
