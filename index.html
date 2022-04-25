@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="AlgoPixels" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="site" />
+    <meta
+      property="og:image"
+      itemprop="image primaryImageOfPage"
+      content="images/Logo_black.png"
+    />
+    <meta
+      property="og:description"
+      content="The first smart contract based NFT collection on Algorand Blockchain. Own a Pixel Slot, alter it!"
+    />
+    <link rel="icon" type="image/png" href="images/Logo_black.png" />
+    <link rel="shortcut icon" href="images/Logo_black.png" type="image/png" />
+    <link
+      rel="apple-touch-icon"
+      href="images/Logo_black.png"
+      type="image/png"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"
+      integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="glitch.css" />
+    <link ref="stylesheet" href="toastr.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/huebee@latest/dist/huebee.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./colorPicker/eight-bit-color-picker.min.css"
+    />
+    <script
+      src="https://unpkg.com/algosdk@v1.15.0/dist/browser/algosdk.min.js"
+      integrity="sha384-wURu1H0s7z6Nj/AiP4O+0EorWZNvjiXwex7pNwtJH77x60mNs0Wm2zR37iUtHMwH"
+      crossorigin="anonymous"
+    ></script>
+    <title>Algo Pixels</title>
+  </head>
+  <body>
+    <section class="mainsection">
+      <div class="banner-img hidden">
+        <img src="./images/Title_transparent_300.png" class="bannerimg" />
+        <div class="link-container">
+          <a href="https://twitter.com/algo_pixels" target="_blank"
+            ><img
+              class="icon-link twitter-icon"
+              src="./images/twitter-svgrepo-com.svg"
+          /></a>
+          <a href="https://t.me/algo_pixels" target="_blank"
+            ><img
+              class="icon-link twitter-icon"
+              src="./images/telegram-svgrepo-com.svg"
+          /></a>
+
+          <a
+            target="_blank"
+            href="https://algogems.io/gallery/AlgoPixelsOfficial"
+            id="algoGems"
+          >
+            <img
+              src="https://www.algogems.io/img/logo.f3a6bd24.svg"
+              alt="logo"
+              class="icon-link"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="parent" id="mainParent"></div>
+        <button class="MyAlgo MyAlgoHidden">Connect to MyAlgo</button>
+      </div>
+      <div
+        class="selected-grid-container selected-grid-container-hidden"
+        id="selected-container"
+      >
+        <div class="detail-box">
+          <div class="box">
+            <div class="selected-grid"></div>
+            <button class="colorPicker" id="color-target">
+              <span class="tooltiptext2">Select a Color</span>
+            </button>
+            <div class="history-container">
+              <div class="history-box"></div>
+              <div class="history-box"></div>
+              <div class="history-box"></div>
+              <div class="history-box"></div>
+            </div>
+          </div>
+          <button class="MyAlgo EditState">Edit State</button>
+        </div>
+        <div class="info-container">
+          <label id="slot-number">Pixel Slot Number:</label>
+          <p>Owned By: <a target="_blank" id="old-color">Old Color:</a></p>
+          <div class="img-container">
+            <a target="_blank" id="nftExplorer">
+              <img
+                src="https://www.nftexplorer.app/favicon.ico"
+                class="connection-img"
+                alt="favicon"
+              />
+            </a>
+            <a target="_blank" id="algoGems">
+              <img
+                src="https://www.algogems.io/img/logo.f3a6bd24.svg"
+                class="connection-img"
+                alt="logo"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="loading-con" aria-hidden="true">
+        <img
+          src="./images/Logo_black-removebg-preview.png"
+          alt="title"
+          class="title-img"
+        />
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">S</footer>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="https://unpkg.com/huebee@latest/dist/huebee.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./colorPicker/eight-bit-color-picker.min.js"></script>
+    <script src="./myalgo.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
