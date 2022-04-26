@@ -644,8 +644,11 @@ button.toast-close-button {
 }
 
 @media screen and (max-width: 1024px) {
+  .selected-grid-container {
+    width: 80%;
+  }
   .history-container {
-    width: 60%;
+    width: 25%;
     height: 80%;
     margin-left: 15px;
   }
@@ -697,8 +700,11 @@ button.toast-close-button {
   }
   .colorPicker {
     width: 100%;
-    height: 2vh;
+    height: 4vh;
     align-self: center;
+    max-width: 140px !important;
+    margin-right: 7px;
+    margin-bottom: 2vh;
   }
   .container {
     width: 65%;
@@ -729,5 +735,17 @@ button.toast-close-button {
   .EditState {
     margin-top: 1vh;
     margin-right: 0;
+    width: 50%;
+  }
+  .history-container {
+    padding: 0;
+    margin-right: 15px;
+    width: 50%;
+    margin-bottom: 2vh;
+  }
+  .history-box {
+    height: 25%;
+    width: 100%;
+    cursor: pointer;
   }
 }
