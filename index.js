@@ -588,12 +588,14 @@ const Execution = () => {
     if (connected) {
       const selectedGrid = document.querySelector(".selected-grid");
       let colorIds = [];
+      let colors = [];
       selectedGrid.childNodes.forEach((pixel, i) => {
         let color = rgbToHex(pixel.style.backgroundColor);
         colorIds = [...colorIds, palette.findIndex((col) => col === color)];
+        colors = [...colors, color];
       });
       const int8array = new Uint8Array([...colorIds]);
-      InitiateTransaction(selectedGrid.id, int8array);
+      InitiateTransaction(selectedGrid.id, int8array, colors);
     } else {
       toastr.options = {
         closeButton: false,
@@ -665,7 +667,7 @@ async function is_owner(address, asa_id) {
   return false;
 }
 
-const InitiateTransaction = async (boxId, colorIds) => {
+const InitiateTransaction = async (boxId, colorIds, colors) => {
   try {
     const res = await is_owner(userAddress, nft_ids[boxId]);
     if (!res) {
@@ -687,7 +689,7 @@ const InitiateTransaction = async (boxId, colorIds) => {
       };
       toastr["error"](`Pixel Slot #${boxId} not owned`);
     } else {
-      put_data(boxId, colorIds);
+      put_data(boxId, colorIds, colors);
     }
   } catch (error) {
     console.log(error);
@@ -770,7 +772,7 @@ const updateBox = (boxNumber, colors) => {
   }, 500);
 };
 
-async function put_data(block_number, indexes) {
+async function put_data(block_number, indexes, colors) {
   const nft_id = nft_ids[block_number];
   const params = await client.getTransactionParams().do();
   const param = Uint8Array.from("put_block", (c) => c.charCodeAt(0));
@@ -833,7 +835,7 @@ async function put_data(block_number, indexes) {
       };
       toastr["success"]("State succesfully edited");
       setTimeout(() => {
-        renderBox(block_number);
+        updateBox(block_number, colors);
       }, 2000);
     }
   } catch (err) {
