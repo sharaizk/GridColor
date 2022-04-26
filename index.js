@@ -837,7 +837,7 @@ async function put_data(block_number, indexes, colors) {
       toastr["success"]("State succesfully edited");
       setTimeout(() => {
         updateBox(block_number, colors);
-      }, 2000);
+      }, 1000);
     }
   } catch (err) {
     const error = err.message;
