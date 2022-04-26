@@ -832,11 +832,9 @@ async function put_data(block_number, indexes) {
         hideMethod: "fadeOut",
       };
       toastr["success"]("State succesfully edited");
-      // setTimeout(() => {
-      // Execute().then(() => {
-      renderBox(block_number);
-      // });
-      // }, 4000);
+      setTimeout(() => {
+        renderBox(block_number);
+      }, 2000);
     }
   } catch (err) {
     const error = err.message;
