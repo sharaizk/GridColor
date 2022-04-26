@@ -543,6 +543,7 @@ const Execution = () => {
       });
       selectedGrid.scrollIntoView({ behavior: "smooth" });
       AlgoGems.href = `https://algogems.io/nft/${nft_ids[selectedGrid.id]}`;
+      console.log(AlgoGems.href);
       nftExplorer.href = `https://www.nftexplorer.app/asset/${
         nft_ids[selectedGrid.id]
       }`;
